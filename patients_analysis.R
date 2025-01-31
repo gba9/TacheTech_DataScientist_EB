@@ -133,7 +133,7 @@ patients <- patients %>%
     diagnostic == 158684 ~ 'EBS_atresie',
     diagnostic == 257 ~ 'EBS_distrophie',
     diagnostic == 305 ~ 'EB_jonct',
-    diagnostic == 79403 ~ 'ABJ_atresie',
+    diagnostic == 79403 ~ 'EBJ_atresie',
     diagnostic == 251393 ~ 'EBJ_local'
     )) %>%
   mutate(diagnostic_general = case_when(
@@ -172,6 +172,23 @@ patients_clean <- patients %>%
 ## EDA automatique sur variables transformées  ----
 #ExpReport(patients_clean, op_file="EDA/patients_clean_smartEDA.html")
 
+# Plot des types et sous-types EB
+patients_typesEB <- patients_clean %>% 
+  mutate(diagnostic = factor(diagnostic, levels = c("EB_simpl", "EBS_atresie", "EBS_distrophie", "EB_jonct", "EBJ_local", "EBJ_atresie"), ordered = TRUE))
+
+typeEB<- ggplot(patients_typesEB, aes(x = diagnostic, fill=diagnostic)) +
+  geom_bar(color = "black") +
+  labs(title = "Nombre de patients par type de diagnostic",
+       x = "Type de diagnostic",
+       y = "Nombre de patients") +
+  theme_minimal() +
+  scale_fill_viridis_d(option = "viridis") +
+  geom_text(stat = 'count', aes(label = ..count..), vjust = -0.5, color = "black") +
+  theme(plot.title = element_text(hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+
+typeEB
+
 ## ANALYSE BIVARIEE =====
  patients_noID<- patients_clean %>%
   select (-idmr)
@@ -179,7 +196,7 @@ patients_clean <- patients %>%
 ## Exploratoire - Plot de toutes les paires de variables ----
 ggpairs(patients_noID)
 
-## Test Chi2 pour identifier correlations entre variables qualitatives
+## Test Chi2 pour identifier correlations entre variables qualitatives ----
 CatVar <- c('age_class', 'temps_suivi_class', 'diagnostic', 'diagnostic_general', 'level')
 
 chi_squared_test <- function(var1, var2, data) {
@@ -207,7 +224,7 @@ chi2_all<- function(df, CatVar) {
 
 chi2_all(patients_noID, CatVar) # message d'erreur car certaines categories n<5
 
-## Plots individuels intéressants ---
+## Plots individuels intéressants -----
 
 stacked_barplot<- function(df, varX, varY, palette){
   StkPlot <- ggbarstats(
@@ -252,6 +269,8 @@ boxplot(patients_noID, 'age', 'diagnostic')
 
 stacked_barplot(patients_noID, 'diagnostic', 'age_class', 'AsteroidCity2')
 
+ageDiag<- stacked_barplot(patients_noID, 'diagnostic_general', 'age_class', 'Chevalier1')
+
 # Stacked barplot non proportionnel age et diagnostic
 # 
 # ggplot(patients_noID, aes(fill=diagnostic, y=value, x=diagnostic_general)) + 
@@ -284,7 +303,7 @@ plomb_long <- plomb_full %>%
                names_to = "semaine", 
                values_to = "niveau_plomb")
 
-## Verifier distribution normale de la variable niveau_plomb ------
+## Verifier distribution normale ------
 
 test_normality_niveauPlomb <- function(df) {
   # Histogramme
@@ -338,8 +357,9 @@ ggwithinstats(
   xlab            = "Semaine de traitement",
 )
 
-### Test statistique non-paramétrique 
-kruskal.test(niveau_plomb ~ semaine, data = plomb_long)
+# Test de Friedman pour données appariées non paramétrique
+friedman_test <- friedman.test(niveau_plomb ~ semaine | idmr, data = plomb_long)
+print(friedman_test)
 
 ## Evolution du niveau de plomb pour patients selon diagnostic général ----
 
@@ -352,7 +372,6 @@ grouped_ggwithinstats(
   xlab            = "Semaine de traitement",
   grouping.var    = diagnostic_general
 )
-
 
 
 ## Evolution du niveau de plomb pour patients selon diagnostic détaillé ----
@@ -379,6 +398,7 @@ ggscatterstats(
   title = "Age x niveau plomb"
 )
 
+
 grouped_ggwithinstats(
   data            = plomb_long,
   x               = semaine,
@@ -389,3 +409,73 @@ grouped_ggwithinstats(
   grouping.var    = age_class
 )
 
+### PLOTS SUPPLEMENTAIRES RAPPORT =======
+
+## Plot tranche d'age et type EB general ---
+colors_EBtype<-  c("EBS" = "darkslateblue", "EBJ" = "chartreuse3")
+
+ggplot(patients_noID, aes(x = age_class, fill = diagnostic_general)) +
+  geom_bar(position = "stack", color = "black") +
+  scale_fill_manual(values = colors_EBtype) +
+  labs(title = "Nombre de patients par classe d'âge et diagnostic général",
+       x = "Classe d'âge",
+       y = "Nombre de patients") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  ) +
+  geom_text(stat = "count", aes(label = ..count..), position = position_stack(vjust = 0.5), color = "white")
+
+
+# Plot variation plomb X type EB ------
+
+grouped_ggwithinstats(
+  data            = plomb_long,
+  x               = semaine,
+  y               = niveau_plomb,
+  type            = "np",
+  ylab            = "Niveau de Plomb (ug/dL)",
+  xlab            = "Semaine de traitement",
+  grouping.var    = diagnostic_general,
+  results.subtitle = FALSE
+)
+
+
+
+# Créer des boxplots jumelés en utilisant ggplot2
+pairedPlot<- ggplot(plomb_long) +
+  geom_boxplot(aes(x = semaine, y = niveau_plomb, fill = diagnostic_general), alpha=0.5) +
+  scale_fill_manual(values = colors_EBtype) +
+  labs(title = "Evolution du niveau de plomb au cours des semaines en fonction du type d'EB",
+       y = "Niveau de plomb (ug/dL)",
+       x = "Semaine",
+       fill = "Semaine") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  ) + geom_jitter(aes(x = semaine, y = niveau_plomb, color=diagnostic_general), position = position_jitterdodge(0.4), alpha = 0.6) +
+  scale_color_manual(values = colors_EBtype)+
+  guides(color = "none", fill = guide_legend(title = NULL)) 
+pairedPlot
+
+# Test non paramétrique pour comparer données diagnostic 2 à 2
+
+semaines <- c("W0", "W1", "W4", "W6")
+results <- list()
+
+p_values <- sapply(semaines, function(week) {
+  data_week <- plomb_long %>%
+    filter(semaine == week)
+  test_result <- wilcox.test(niveau_plomb ~ diagnostic_general, data = data_week)
+  test_result$p.value})
+
+# Annotations pour le plot
+annotations <- data.frame(
+  semaine = semaines,
+  p_value = p_values,
+  label = paste0("p = ", formatC(p_values, format = "e", digits = 2)))
+
+pairedPlot +
+  geom_text(data = annotations, aes(x = semaine, y = max(plomb_long$niveau_plomb) * 0.95, label = label), color = "black", size = 3, vjust = -0.5)
