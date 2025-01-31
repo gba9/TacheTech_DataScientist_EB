@@ -15,9 +15,9 @@ library(car)
 
 ### Load data
 wd <- getwd()
-patients_original <- read.csv(paste(wd, "/Patients_HCPAnywhere.csv", sep = ""), header = TRUE, sep = ",")
-diagnostics <- read.csv(paste(wd, "/HCPAnywhere_Diagnostics.csv", sep = ""), header = TRUE, sep = ",")
-plomb <- read.csv(paste(wd, "/HCPAnywhere_Plomb_Data.csv", sep = ""), header = TRUE, sep = ",")
+patients_original <- read.csv(paste(wd, "/data/Patients_HCPAnywhere.csv", sep = ""), header = TRUE, sep = ",")
+diagnostics <- read.csv(paste(wd, "/data/HCPAnywhere_Diagnostics.csv", sep = ""), header = TRUE, sep = ",")
+plomb <- read.csv(paste(wd, "/data/HCPAnywhere_Plomb_Data.csv", sep = ""), header = TRUE, sep = ",")
 
 # NETTOYAGE DONNEES =====
 # Elimination de variables protégées/sensibles sur les patients
@@ -138,7 +138,7 @@ patients <- patients %>%
     )) %>%
   mutate(diagnostic_general = case_when(
     diagnostic %in% c('EB_simpl', 'EBS_atresie', 'EBS_distrophie') ~ 'EBS',
-    diagnostic %in% c('EB_jonct', 'ABJ_atresie', 'EBJ_local') ~ 'EBJ'))
+    diagnostic %in% c('EB_jonct', 'EBJ_atresie', 'EBJ_local') ~ 'EBJ'))
 
 ## Level (recodage) ----
 
@@ -479,3 +479,15 @@ annotations <- data.frame(
 
 pairedPlot +
   geom_text(data = annotations, aes(x = semaine, y = max(plomb_long$niveau_plomb) * 0.95, label = label), color = "black", size = 3, vjust = -0.5)
+
+
+### OUTPUT DATA
+
+# Save datasets
+plomb_output<- plomb_full %>%
+  select (-idmr, -age, -temps_suivi_jours)
+write.csv(plomb_output, "data_plomb_export.csv", row.names = FALSE)
+
+patients_output<- patients_noID %>%
+  select (-age, -temps_suivi_jours)
+write.csv(patients_output, "data_patients_export.csv", row.names = FALSE)

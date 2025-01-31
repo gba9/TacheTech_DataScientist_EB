@@ -1,0 +1,97 @@
+"diagnostic","level","age_class","temps_suivi_class","diagnostic_general","W0","W1","W4","W6"
+"EBS_distrophie","Probable","71-90","1-2ans","EBS",34,10.7,12.6,21.2
+"EBS_atresie","Inconnu","31-50","+2ans","EBS",19.7,13.2,14.6,11.6
+"EBJ_atresie","Non renseigné","31-50","+2ans","EBJ",20.6,23.9,19,17
+"EBJ_atresie","Inconnu","71-90","0-1an","EBJ",32.5,25.1,27.8,27.3
+"EBS_atresie","EnCours","71-90","1-2ans","EBS",20.2,17.5,17.4,18.6
+"EB_simpl","Inconnu","0-30","0-1an","EBS",21.5,6.5,7.1,16
+"EB_simpl","Confirmé","91+","0-1an","EBS",26.8,20.4,19.3,23.8
+"EBJ_local","EnCours","91+","0-1an","EBJ",19.7,14.9,15.3,14.7
+"EBS_atresie","Probable","91+","0-1an","EBS",29.2,9.2,8.3,18.4
+"EB_jonct","Non renseigné","31-50","0-1an","EBJ",27.9,21.6,23.6,27.7
+"EBS_atresie","EnCours","51-70","1-2ans","EBS",31.2,10.8,19.8,22.2
+"EBS_distrophie","Inconnu","0-30","0-1an","EBS",22.1,21,8.6,24.6
+"EBS_distrophie","Confirmé","0-30","1-2ans","EBS",30.3,3.5,3,11.5
+"EBJ_local","Confirmé","71-90","+2ans","EBJ",37.6,33.7,34.4,31.4
+"EBS_atresie","Probable","51-70","1-2ans","EBS",21.8,10.6,14.4,18.7
+"EBJ_atresie","Inconnu","71-90","0-1an","EBJ",23.1,20.9,21.7,19.9
+"EBJ_atresie","Inconnu","71-90","1-2ans","EBJ",32,30.2,30.2,27.5
+"EBJ_atresie","Inconnu","0-30","1-2ans","EBJ",30.3,29.4,33.1,28.4
+"EBS_distrophie","Inconnu","51-70","0-1an","EBS",25,3.9,12.8,12.7
+"EBS_distrophie","Inconnu","91+","1-2ans","EBS",35.3,25.5,26.3,30.3
+"EBJ_local","Non renseigné","71-90","0-1an","EBJ",24.9,23.6,21.2,21.1
+"EBJ_atresie","Probable","31-50","0-1an","EBJ",24.9,20.9,22.2,19.8
+"EBJ_atresie","Confirmé","51-70","+2ans","EBJ",25.2,25.1,23.4,22.2
+"EB_simpl","Inconnu","31-50","0-1an","EBS",20.4,5.4,4.5,11.9
+"EB_jonct","Confirmé","71-90","0-1an","EBJ",24.7,21.2,22.9,21.9
+"EBJ_atresie","EnCours","91+","0-1an","EBJ",24.6,25,21.7,23.9
+"EB_jonct","Inconnu","91+","+2ans","EBJ",26.6,25.3,25.1,27.9
+"EBJ_local","Confirmé","31-50","0-1an","EBJ",25.3,23.9,22.2,27.2
+"EB_jonct","Probable","71-90","1-2ans","EBJ",22.1,21.1,21.5,20.6
+"EB_simpl","Non renseigné","51-70","0-1an","EBS",21.9,7.6,10.8,13
+"EBJ_atresie","Probable","91+","+2ans","EBJ",28.6,20.8,19.2,18.4
+"EB_simpl","EnCours","91+","1-2ans","EBS",28.6,15.8,22.9,25.9
+"EBS_distrophie","Confirmé","51-70","1-2ans","EBS",22.4,7.1,17.2,18.7
+"EB_jonct","Inconnu","51-70","+2ans","EBJ",31.1,31.2,29.2,30.1
+"EB_simpl","Non renseigné","51-70","+2ans","EBS",25.8,23,19.1,23.2
+"EBJ_atresie","Non renseigné","31-50","+2ans","EBJ",33.3,26.2,34,28.2
+"EBS_distrophie","EnCours","51-70","0-1an","EBS",24.4,16.4,11.6,16.6
+"EBJ_local","Inconnu","31-50","1-2ans","EBJ",30.8,26.9,25.8,23.8
+"EB_simpl","EnCours","0-30","0-1an","EBS",33.7,14.9,14.5,63.9
+"EBJ_local","Inconnu","51-70","1-2ans","EBJ",21.1,20.3,18.4,20.8
+"EBS_atresie","Confirmé","91+","+2ans","EBS",21.8,12,16.8,19.2
+"EB_jonct","Confirmé","51-70","+2ans","EBJ",27.2,28.5,35,30.5
+"EBS_atresie","Confirmé","91+","0-1an","EBS",21.1,5.6,7.3,12.3
+"EBS_distrophie","EnCours","0-30","+2ans","EBS",24.8,23.1,24.6,30.9
+"EB_simpl","Inconnu","51-70","+2ans","EBS",28.9,12.5,16.7,22.2
+"EBS_atresie","Inconnu","51-70","+2ans","EBS",24.5,10,15.6,15.2
+"EB_jonct","Inconnu","0-30","0-1an","EBJ",26.6,22.4,21.8,21
+"EBS_distrophie","Confirmé","51-70","1-2ans","EBS",26.7,6.4,5.1,15.1
+"EB_simpl","Confirmé","0-30","0-1an","EBS",34.7,39,28.8,34.7
+"EBS_atresie","Probable","91+","1-2ans","EBS",26.5,14.8,19.5,21
+"EBJ_atresie","Non renseigné","51-70","0-1an","EBJ",31.9,27.9,27.3,34.2
+"EB_simpl","Confirmé","71-90","0-1an","EBS",29.6,15.8,23.7,23.4
+"EBS_atresie","Non renseigné","31-50","0-1an","EBS",24.5,5.1,8.2,23.6
+"EB_simpl","Non renseigné","31-50","0-1an","EBS",29.6,17.5,21,24.2
+"EBJ_local","Confirmé","71-90","1-2ans","EBJ",24,16.7,21.7,20.3
+"EBJ_local","EnCours","91+","0-1an","EBJ",19.8,17.5,20.5,27.5
+"EBJ_atresie","EnCours","71-90","0-1an","EBJ",25.8,21.9,23.6,24.8
+"EBJ_local","EnCours","91+","+2ans","EBJ",20.4,17.2,15.9,17.7
+"EB_simpl","Probable","51-70","0-1an","EBS",20.4,2.8,3.2,9.4
+"EBJ_atresie","Probable","31-50","0-1an","EBJ",20,22.7,21.2,20.5
+"EB_jonct","Inconnu","0-30","+2ans","EBJ",24.7,24.5,22,22.5
+"EBJ_atresie","Probable","91+","1-2ans","EBJ",20.7,19.3,21.9,21.8
+"EB_simpl","Non renseigné","51-70","1-2ans","EBS",27.1,14.9,18.1,21.3
+"EBS_distrophie","EnCours","31-50","0-1an","EBS",23,4.2,4,16.2
+"EBJ_local","Inconnu","51-70","+2ans","EBJ",30,27.6,24,23.7
+"EBJ_local","EnCours","31-50","1-2ans","EBJ",22.4,22,19.1,18.7
+"EBS_atresie","Confirmé","51-70","+2ans","EBS",32.6,19,16.3,18.6
+"EB_jonct","Inconnu","71-90","0-1an","EBJ",35.4,30.4,26.5,28.1
+"EBS_distrophie","Inconnu","71-90","0-1an","EBS",31.4,3.9,7,17.8
+"EBS_distrophie","Inconnu","31-50","+2ans","EBS",41.1,15.1,10.9,27.1
+"EB_simpl","Non renseigné","71-90","+2ans","EBS",22.2,11.5,9.5,14.5
+"EBS_distrophie","Probable","71-90","1-2ans","EBS",20.7,8.1,25.7,12.3
+"EB_jonct","Inconnu","31-50","+2ans","EBJ",24.1,20.1,17.9,18.7
+"EBS_distrophie","Non renseigné","31-50","+2ans","EBS",26,21.4,21,22.4
+"EB_jonct","EnCours","51-70","+2ans","EBJ",34.7,39.5,38.6,43.3
+"EBS_distrophie","EnCours","0-30","0-1an","EBS",23.5,7.9,12.4,18.9
+"EBS_atresie","Inconnu","91+","0-1an","EBS",20.2,10.6,9,16
+"EBS_atresie","EnCours","31-50","+2ans","EBS",27.7,4,4.2,11.7
+"EB_jonct","Inconnu","71-90","1-2ans","EBJ",38.1,40.8,38,32.7
+"EB_jonct","Non renseigné","51-70","+2ans","EBJ",20.5,21.1,17.4,21.1
+"EBJ_local","Non renseigné","51-70","+2ans","EBJ",28.8,26.4,23.8,22
+"EBS_atresie","Confirmé","51-70","+2ans","EBS",19.8,11.6,13,23.1
+"EBS_distrophie","Non renseigné","0-30","1-2ans","EBS",30.6,28.2,27,25.5
+"EBJ_atresie","Probable","31-50","0-1an","EBJ",20.3,21,16.7,13.5
+"EB_jonct","Probable","31-50","+2ans","EBJ",20.5,17.5,19.6,18.4
+"EBS_atresie","Probable","71-90","+2ans","EBS",24.3,24.3,18.4,27.8
+"EBS_distrophie","Non renseigné","31-50","0-1an","EBS",36.6,23.3,40.4,39.3
+"EBJ_atresie","Confirmé","71-90","0-1an","EBJ",25.1,28.1,27.5,24.8
+"EB_jonct","Confirmé","51-70","1-2ans","EBJ",19.8,18.9,18.9,15.5
+"EBS_distrophie","Confirmé","51-70","1-2ans","EBS",27.9,6.3,18.5,16.3
+"EB_simpl","EnCours","0-30","1-2ans","EBS",26.4,15.3,24.6,32.4
+"EBJ_atresie","Non renseigné","71-90","0-1an","EBJ",21.4,26.3,19.5,19
+"EBJ_local","Inconnu","51-70","0-1an","EBJ",26.2,26.8,25.3,24.8
+"EBJ_atresie","Probable","31-50","0-1an","EBJ",33.7,31.6,28.5,25.1
+"EB_simpl","Inconnu","31-50","0-1an","EBS",29.1,16.8,15.1,18.8
+"EB_jonct","Probable","31-50","0-1an","EBJ",25.4,24.3,22.7,20.1
